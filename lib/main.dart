@@ -6,13 +6,14 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  
-@override
+  @override
   Widget build(BuildContext context) {
-    
-    return  MaterialApp(
-      home: HomePage(),
-      
-    );
+    return MaterialApp(
+        home: HomePage(),
+        themeMode: ThemeMode.light,
+        theme: ThemeData(primarySwatch: Colors.deepOrange),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+        ));
   }
 }
