@@ -8,7 +8,8 @@ class MyWidget extends StatelessWidget {
     return Material(
         child: Column(
       children: [
-        Image.asset("assets/images/login_images.png"),
+        Image.asset("assets/images/login_images.png",fit:BoxFit.cover,
+        ),
       ],
     ));
   }
