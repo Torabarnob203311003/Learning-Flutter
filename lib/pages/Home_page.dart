@@ -3,7 +3,7 @@ import 'Home_page.dart';
 
 class HomePage extends StatelessWidget {
   final int days = 60;
-  final String name = "with torab";
+  final String name = " with torab";
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          child: Text("welcome flutter  $days challenge with $name"),
+          child: Text("welcome to learning flutter challenge $name"),
         ),
       ),
       drawer: Drawer(),

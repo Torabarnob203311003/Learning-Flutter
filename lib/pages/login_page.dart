@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/utils/routes.dart';
 
-class MyWidget extends StatelessWidget {
+class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
 
+  @override
+  State<MyWidget> createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State<MyWidget> {
+  String name = "";
   @override
   Widget build(BuildContext context) {
     var labelText = "username or email";
@@ -17,15 +23,15 @@ class MyWidget extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               SizedBox(
-                height: 20.0,
+                height: 15.0,
               ),
-              Text("welcome",
+              Text("welcome $name",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
                   )),
               SizedBox(
-                height: 20.0,
+                height: 17.0,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -34,8 +40,11 @@ class MyWidget extends StatelessWidget {
                   children: [
                     TextFormField(
                       decoration: InputDecoration(
-                          hintText: "Username or Email",
-                          labelText: "Username or Email"),
+                          hintText: "Username ", labelText: "Username "),
+                      onChanged: (value) {
+                        name = value;
+                        setState(() {});
+                      },
                     ),
                     TextFormField(
                       decoration: InputDecoration(
@@ -47,18 +56,37 @@ class MyWidget extends StatelessWidget {
                     SizedBox(
                       height: 20.0,
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        print(
-                          Navigator.pushNamed(context, MyRoutes.homeRoute),
-                        );
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, MyRoutes.homeRoute);
                       },
-                      child: Text("LogIn"),
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.purple[200],
-                        minimumSize: Size(120, 40),
+                      child: AnimatedContainer(
+                        duration: Duration(seconds: 1),
+                        width: 110,
+                        height: 50,
+                        alignment: Alignment.center,
+                        child: Text("LogIn",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16)),
+                        decoration: BoxDecoration(
+                            color: Colors.deepPurple,
+                            borderRadius: BorderRadius.circular(8)),
                       ),
-                    ),
+                    )
+                    // ElevatedButton(
+                    //   onPressed: () {
+                    //     print(
+                    //       Navigator.pushNamed(context, MyRoutes.homeRoute),
+                    //     );
+                    //   },
+                    //   child: Text("LogIn"),
+                    //   style: TextButton.styleFrom(
+                    //     backgroundColor: Colors.purple[200],
+                    //     minimumSize: Size(120, 40),
+                    //   ),
+                    // ),
                   ],
                 ),
               )
