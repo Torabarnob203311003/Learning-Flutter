@@ -10,6 +10,7 @@ class MyWidget extends StatefulWidget {
 
 class _MyWidgetState extends State<MyWidget> {
   String name = "";
+  bool changeButton = false;
   @override
   Widget build(BuildContext context) {
     var labelText = "username or email";
@@ -57,22 +58,37 @@ class _MyWidgetState extends State<MyWidget> {
                       height: 20.0,
                     ),
                     InkWell(
-                      onTap: () {
+                      onTap: () async {
+                        setState(() {
+                          changeButton = true;
+                        });
+                        await Future.delayed(
+                          Duration(seconds: 1),
+                        );
                         Navigator.pushNamed(context, MyRoutes.homeRoute);
                       },
                       child: AnimatedContainer(
                         duration: Duration(seconds: 1),
-                        width: 110,
+                        width: changeButton ? 50 : 110,
                         height: 50,
                         alignment: Alignment.center,
-                        child: Text("LogIn",
-                            style: TextStyle(
+                        child: changeButton
+                            ? Icon(
+                                Icons.done,
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16)),
+                              )
+                            : Text("LogIn",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16)),
                         decoration: BoxDecoration(
                             color: Colors.deepPurple,
-                            borderRadius: BorderRadius.circular(8)),
+                            // shape: changeButton
+                            //     ? BoxShape.circle
+                            //     : BoxShape.rectangle,
+                            borderRadius:
+                                BorderRadius.circular(changeButton ? 12 : 8)),
                       ),
                     )
                     // ElevatedButton(
