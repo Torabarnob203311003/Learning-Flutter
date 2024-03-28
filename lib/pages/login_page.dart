@@ -41,7 +41,7 @@ class _MyWidgetState extends State<MyWidget> {
                   children: [
                     TextFormField(
                       decoration: InputDecoration(
-                          hintText: "Username ", labelText: "Username "),
+                          hintText: "Enter Username ", labelText: "Username "),
                       onChanged: (value) {
                         name = value;
                         setState(() {});
@@ -65,6 +65,9 @@ class _MyWidgetState extends State<MyWidget> {
                         await Future.delayed(
                           Duration(seconds: 1),
                         );
+                        setState(() {
+                          changeButton = false;
+                        });
                         Navigator.pushNamed(context, MyRoutes.homeRoute);
                       },
                       child: AnimatedContainer(
