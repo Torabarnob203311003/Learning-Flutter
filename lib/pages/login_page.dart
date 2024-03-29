@@ -12,7 +12,21 @@ class _MyWidgetState extends State<MyWidget> {
   String name = "";
   bool changeButton = false;
   final _fromkey = GlobalKey<FormState>();
-  moveToHome(BuildContext context) {}
+  void moveToHome(BuildContext context) async {
+    if (_fromkey.currentState!.validate()) {
+      setState(() {
+        changeButton = true;
+      });
+      await Future.delayed(
+        Duration(seconds: 1),
+      );
+      setState(() {
+        changeButton = false;
+      });
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+    }
+  } // add this line
+
   @override
   Widget build(BuildContext context) {
     var labelText = "username or email";
@@ -47,6 +61,12 @@ class _MyWidgetState extends State<MyWidget> {
                         decoration: InputDecoration(
                             hintText: "Enter Username ",
                             labelText: "Username "),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Username cannot be empty";
+                          }
+                          return null;
+                        },
                         onChanged: (value) {
                           name = value;
                           setState(() {});
@@ -55,6 +75,14 @@ class _MyWidgetState extends State<MyWidget> {
                       TextFormField(
                         decoration: InputDecoration(
                             hintText: "Password", labelText: "Password"),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Password cannot be empty";
+                          } else if (value.length < 6) {
+                            return "Password must be at least 6 characters long";
+                          }
+                          return null;
+                        },
                       ),
                       SizedBox(
                         height: 20.0,
@@ -67,18 +95,7 @@ class _MyWidgetState extends State<MyWidget> {
                         borderRadius:
                             BorderRadius.circular(changeButton ? 12 : 8),
                         child: InkWell(
-                          onTap: () async {
-                            setState(() {
-                              changeButton = true;
-                            });
-                            await Future.delayed(
-                              Duration(seconds: 1),
-                            );
-                            setState(() {
-                              changeButton = false;
-                            });
-                            Navigator.pushNamed(context, MyRoutes.homeRoute);
-                          },
+                          onTap: () => moveToHome(context),
                           child: AnimatedContainer(
                             duration: Duration(seconds: 1),
                             width: changeButton ? 50 : 110,
@@ -101,19 +118,6 @@ class _MyWidgetState extends State<MyWidget> {
                           ),
                         ),
                       ),
-
-                      // ElevatedButton(
-                      //   onPressed: () {
-                      //     print(
-                      //       Navigator.pushNamed(context, MyRoutes.homeRoute),
-                      //     );
-                      //   },
-                      //   child: Text("LogIn"),
-                      //   style: TextButton.styleFrom(
-                      //     backgroundColor: Colors.purple[200],
-                      //     minimumSize: Size(120, 40),
-                      //   ),
-                      // ),
                     ],
                   ),
                 )
