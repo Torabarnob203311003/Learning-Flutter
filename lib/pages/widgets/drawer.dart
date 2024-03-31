@@ -7,14 +7,12 @@ class MyDrawer extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            child: UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.purple,
-              ),
-              accountName: Text("Torab arnob"),
-              accountEmail: Text("maxarnobtorab@gmail.com"),
-            ),
-          )
+              padding: EdgeInsets.zero,
+              margin: EdgeInsets.zero,
+              child: UserAccountsDrawerHeader(
+                accountName: Text("Torab Arnob"),
+                accountEmail: Text("Maxarnobtorab@gmail,com"),
+              ))
         ],
       ),
     );
