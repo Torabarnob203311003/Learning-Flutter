@@ -10,12 +10,69 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cv App"),
+        title: Text("Mustafizur Rahman"),
       ),
       body: Center(
-        child: Container(
-          child: Text("welcome to learning flutter challenge $name"),
-        ),
+        child: Column(children: [
+          SizedBox(
+            height: 20,
+          ),
+          Image.asset(
+            "assets/images/Man.png",
+            height: 150,
+            width: 150,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Mustafizur Rahman",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Assistant Software Engineer",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w200,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Business Automation Ltd",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w200,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Completed BSc in CSE ",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w200,
+            ),
+          ),
+          SizedBox(
+            height: 18,
+          ),
+          Text(
+            "from Varendra University",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w200,
+            ),
+          ),
+        ]),
       ),
       drawer: MyDrawer(),
     );
