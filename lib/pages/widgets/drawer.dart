@@ -8,7 +8,6 @@ class MyDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
               padding: EdgeInsets.zero,
-              margin: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                 accountName: Text("Torab Arnob"),
                 accountEmail: Text("Maxarnobtorab@gmail,com"),
