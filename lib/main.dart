@@ -5,6 +5,7 @@ import 'package:my_app/utils/routes.dart';
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
 
+
 void main() {
   runApp(MyApp());
 }
@@ -15,7 +16,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       themeMode: ThemeMode.light,
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
         fontFamily: GoogleFonts.lato().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
