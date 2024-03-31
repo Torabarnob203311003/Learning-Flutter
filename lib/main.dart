@@ -5,7 +5,6 @@ import 'package:my_app/utils/routes.dart';
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      initialRoute: MyRoutes.homeRoute,
+      initialRoute: "/",
       routes: {
         "/": (context) => MyWidget(),
         MyRoutes.homeRoute: (context) => HomePage(),
