@@ -4,6 +4,9 @@ import 'package:my_app/pages/login_page.dart';
 import 'package:my_app/utils/routes.dart';
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
+import 'pages/widgets/drawer.dart';
+import 'pages/widgets/Education.dart';
+import 'pages/widgets/About me.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,8 +27,10 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => MyWidget(),
+        "/education": (context) => EducationScreen(),
+        "/aboutme": (context) => AboutMe(),
         MyRoutes.homeRoute: (context) => HomePage(),
-        MyRoutes.loginRoute: (context) => LoginPage()
+        MyRoutes.loginRoute: (context) => LoginPage(),
       },
     );
   }

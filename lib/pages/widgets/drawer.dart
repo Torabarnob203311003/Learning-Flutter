@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/utils/routes.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -27,14 +28,23 @@ class MyDrawer extends StatelessWidget {
                   "About Me",
                   textScaleFactor: 1.2,
                   style: TextStyle(color: Colors.white),
-                )),
+                ),
+                  onTap: () {
+                Navigator.pushNamed(context, '/aboutme');
+              },
+                
+                ),
             ListTile(
-                leading: Icon(CupertinoIcons.book_circle, color: Colors.purple),
-                title: Text(
-                  "Education",
-                  textScaleFactor: 1.2,
-                  style: TextStyle(color: Colors.white),
-                )),
+              leading: Icon(CupertinoIcons.book_circle, color: Colors.purple),
+              title: Text(
+                "Education",
+                textScaleFactor: 1.2,
+                style: TextStyle(color: Colors.white),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/education');
+              },
+            ),
             ListTile(
                 leading: Icon(CupertinoIcons.ant_circle, color: Colors.purple),
                 title: Text(
